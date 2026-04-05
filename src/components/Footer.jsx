@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import './Footer.css'
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="container-footer">
@@ -8,20 +10,20 @@ function Footer() {
 
           {/* Datos de Contacto */}
           <div className="footer-section">
-            <p>📍 Pasaia Kalea, 5, Donostia / San Sebastián</p>
-            <p>📞 +34 623 028 832</p>
-            <p>✉️ crystalzeitlingonzalez@gmail.com</p>
+            <p>{t('footer_address')}</p>
+            <p>{t('footer_phone')}</p>
+            <p>{t('footer_email')}</p>
           </div>
 
           {/* Horario */}
           <div className="footer-section">
-            <h4>Horario</h4>
-            <p>Lunes a Sábado: 09:00 - 19:00</p>
+            <h4>{t('footer_hours_title')}</h4>
+            <p>{t('footer_hours')}</p>
             <button 
               className="btn-booking"
               onClick={() => window.open('https://wa.me/34623028832', '_blank')}
             >
-                Reserva tu cita
+                {t('footer_booking_button')}
             </button>
           </div>
 

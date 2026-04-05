@@ -83,4 +83,12 @@ export default {
   contact_sending: 'Enviando...',
   contact_success: 'Gracias {{name}}, tu mensaje ha sido enviado',
   contact_error: 'Error al enviar el mensaje',
+
+  // ----- FOOTER -----
+  footer_address: '📍 Pasaia Kalea, 5, Donostia / San Sebastián',
+  footer_phone: '📞 +34 623 028 832',
+  footer_email: '✉️ crystalzeitlingonzalez@gmail.com',
+  footer_hours_title: 'Horario',
+  footer_hours: 'Lunes a Sábado: 09:00 - 19:00',
+  footer_booking_button: 'Reserva tu cita',
 };
