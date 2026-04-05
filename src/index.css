@@ -1,0 +1,86 @@
+:root {
+  --text: #5f5a50;
+  --text-h: #3e372f;
+  --bg: #e2caab;    
+  --border: #d6cfc2;  
+  --code-bg: #f4f3ec;
+  --accent: #c7a27c;
+  --accent-bg: rgba(199, 162, 124, 0.15);
+  --accent-border: rgba(199, 162, 124, 0.5);
+  --shadow: rgba(0,0,0,0.08) 0 10px 15px -3px, rgba(0,0,0,0.04) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Georgia', serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+  margin: 0.5em 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.3px;
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #a97b5d;
+}
+
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #b28e66; /* un poco más oscuro */
+}

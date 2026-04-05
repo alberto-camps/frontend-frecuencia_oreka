@@ -1,0 +1,73 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+.section-overlay {
+  position: relative;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  color: #f5f5f5;
+
+  /* Fondo con imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.section-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.section-overlay h1,
+.section-overlay p,
+.buttonWA-container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f5f5f5;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+
+.section-overlay p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #f5f5f5;
+}
+
+.buttonWA-container {
+  margin-top: 25px;
+}
+
+.cta {
+  background: #bfa2db;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: #a484c7;
+  transform: scale(1.05);
+}
