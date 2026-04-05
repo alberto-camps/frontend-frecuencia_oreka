@@ -4,6 +4,7 @@ import './Contact.css'
 
 function Contact() {
     const { t } = useTranslation();
+    const [submittedName, setSubmittedName] = useState('');
     const initialState = {
         name: '',
         email: '',
@@ -15,10 +16,16 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (status === 'loading') return;
+
+        setSubmittedName(formData.name);
         setStatus('loading');
 
+        const urlBase = import.meta.env.VITE_APP_API_URL
+
         try {
-            const response = await fetch("http://localhost:3000/contact", {
+            const response = await fetch(urlBase, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(formData)
@@ -30,8 +37,8 @@ function Contact() {
             const data = await response.json()
             console.log(data.message)
             
-            const userName = formData.name
             setStatus('success');
+
             setTimeout(() => {
                 setStatus(null);
                 setFormData(initialState);
@@ -44,6 +51,7 @@ function Contact() {
     };
 
     const handleChange = (e) => {
+        if (status === 'loading') return;
         const { name, value } = e.target;
         let newValue = value;
         if (name === 'phone') {
@@ -68,6 +76,7 @@ function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        disabled={status === 'loading'}
                         required
                     />
                 </div>
@@ -79,6 +88,7 @@ function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        disabled={status === 'loading'}
                         required
                     />
                 </div>
@@ -89,6 +99,7 @@ function Contact() {
                         id="phone" 
                         name="phone"
                         value={formData.phone}
+                        disabled={status === 'loading'}
                         onChange={handleChange}
                     />
                 </div>
@@ -99,6 +110,7 @@ function Contact() {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
+                        disabled={status === 'loading'}
                         required
                     />
                 </div>
@@ -106,13 +118,12 @@ function Contact() {
                     type="submit"
                     disabled={status === 'loading'}
                 >
-                    {status === 'loading' ? t('contact_sending') : t('contact_submit')}
+                    {status === 'loading' && t('contact_sending')}
+                    {status === 'success' && t('contact_success', { name: submittedName })}
+                    {status === null && t('contact_submit')}
+                    {status === 'error' && t('contact_error')}
                 </button>
-
             </form>
-            {status === 'loading' && <p>{t('contact_sending')}</p>}
-            {status === 'success' && <p>{t('contact_success', { name: formData.name })}</p>}
-            {status === 'error' && <p>{t('contact_error')}</p>}
         </div>
         </>
     );
