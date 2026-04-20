@@ -3,7 +3,8 @@ export default {
   home_title: 'Bienvenida a la página de Frecuencia Oreka',
   home_description: 'Equilibra cuerpo, mente y energía',
   // ----- SOBRE MÍ -----
-  about_text: 'Soy Crystal, terapeuta holística, quiromasajista y masajista ayurveda. '+
+  about_title: 'Soy Crystal',
+  about_text: 'Terapeuta holística, quiromasajista y masajista ayurveda. '+
                'Aprendiz de la salud integral y amante del acompañamiento en amor y conciencia.',
 
   // ----- NAVBAR -----

@@ -1,66 +1,127 @@
+/* ================== CONTENEDOR ================== */
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 80px auto;
+  width: 92%;
+  max-width: 1000px;
+  margin: 60px auto;
 }
 
+/* ================== WRAPPER ================== */
 .about-wrapper {
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
+/* ================== OVERLAY ================== */
 .about-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   z-index: 1;
 }
 
+/* ================== CARD ================== */
 .about-card {
   position: relative;
   z-index: 2;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
   gap: 40px;
+
   padding: 40px;
-  flex-wrap: wrap;
+
+  flex-wrap: nowrap; /* 🔥 clave: evitamos el caos en desktop */
 }
 
+/* ================== IMAGEN ================== */
 .about-image {
-  flex: 0 0 200px;
+  flex: 0 0 180px;
+  display: flex;
+  justify-content: center;
 }
 
 .about-image img {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
+/* ================== TEXTO ================== */
 .about-text {
-  flex: 1 1 400px;
+  flex: 1;
+  max-width: 600px; /* 🔥 evita que se estire raro */
   color: #d1cbcb;
+  text-align: left; /* 🔥 mejor lectura en desktop */
+  line-height: 1.7;
 }
 
+/* título */
 .about-text h2 {
-    color: #d1cbcb;
+  color: #d1cbcb;
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
+/* párrafo */
 .about-text p {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 300;
   color: #d1cbcb;
+
+  max-width: 650px;
+  margin: 0 auto;
 }
 
+/* ================== TABLET ================== */
 @media (max-width: 768px) {
   .about-card {
     flex-direction: column;
     text-align: center;
+    padding: 25px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+}
+
+/* ================== MÓVIL ================== */
+@media (max-width: 480px) {
+  .container {
+    margin: 40px auto;
+  }
+
+  .about-card {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .about-image img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
   }
 }

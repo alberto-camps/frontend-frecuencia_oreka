@@ -8,13 +8,6 @@ function Footer() {
       <div className="container-footer">
         <div className="footer-grid">
 
-          {/* Datos de Contacto */}
-          <div className="footer-section">
-            <p>{t('footer_address')}</p>
-            <p>{t('footer_phone')}</p>
-            <p>{t('footer_email')}</p>
-          </div>
-
           {/* Horario */}
           <div className="footer-section">
             <h4>{t('footer_hours_title')}</h4>
@@ -25,6 +18,13 @@ function Footer() {
             >
                 {t('footer_booking_button')}
             </button>
+          </div>
+
+          {/* Datos de Contacto */}
+          <div className="footer-section">
+            <p>{t('footer_address')}</p>
+            <p>{t('footer_phone')}</p>
+            <p>{t('footer_email')}</p>
           </div>
 
         </div>

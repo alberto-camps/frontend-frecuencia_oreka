@@ -16,9 +16,10 @@ function About() {
             <img src={crystal} alt="Sobre mí" />
           </div>
 
-          <div className="about-text">
-            <h2>{t('about_text')}</h2>
-          </div>
+        <div className="about-text">
+          <h2>{t('about_title')}</h2>
+          <p>{t('about_text')}</p>
+        </div>
         </div>
 
       </div>

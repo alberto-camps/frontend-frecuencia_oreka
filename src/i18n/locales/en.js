@@ -4,7 +4,8 @@ export default {
   home_description: 'Balances body, mind, and energy',
   
   // ----- ABOUT -----
-  about_text: 'I`m Crystal, a holistic therapist, massage therapist, and Ayurvedic massage therapist. '+
+  about_title: 'I`m Crystal',
+  about_text: 'A holistic therapist, massage therapist, and Ayurvedic massage therapist. '+
                'I`m a student of holistic health and passionate about providing loving and mindful support.',
 
   // ----- NAVBAR -----

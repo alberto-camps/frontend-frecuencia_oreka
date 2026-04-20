@@ -1,34 +1,89 @@
+/* ================== CONTENEDOR ================== */
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 80px auto;
+  width: 92%;
+  max-width: 1100px;
+  margin: 60px auto;
 }
 
+/* ================== BLOQUE PRINCIPAL ================== */
 .section-overlay {
+  position: relative;
+
   background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 40px;
+  backdrop-filter: blur(6px);
+
+  border-radius: 18px;
+  padding: 35px;
+
   text-align: center;
   color: #f5f5f5;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
+/* overlay más elegante (gradiente suave) */
+.section-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35)
+  );
+
+  z-index: 0;
+}
+
+/* ================== CONTENIDO ================== */
+.section-overlay h1,
+.section-overlay h2,
+.section-overlay p,
+.buttonWA-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================== TÍTULO ================== */
 .section-overlay h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+
   color: #f5f5f5;
-  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
+/* ================== TEXTO ================== */
 .section-overlay p {
   font-weight: 300;
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+  max-width: 750px;
+  margin: 0 auto 20px auto;
+
   color: #f5f5f5;
 }
 
+/* ================== BOTÓN ================== */
 .buttonWA-container {
-  margin-top: 25px;
+  margin-top: 20px;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+  .section-overlay {
+    padding: 25px;
+  }
+
+  .section-overlay h1 {
+    font-size: 1.9rem;
+  }
+
+  .section-overlay p {
+    font-size: 1rem;
+  }
 }

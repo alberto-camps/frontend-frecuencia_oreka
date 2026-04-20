@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import massages from "../services/massages";
 import ButtonWA from "../services/ButtonWA";
@@ -7,6 +8,10 @@ import './MassageDetails.css';
 function MassageDetails() {
     const { t } = useTranslation();
     const { id } = useParams();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
     
     const massage = massages.find(m => m.id === id?.toLowerCase());
 

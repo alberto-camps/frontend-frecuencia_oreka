@@ -1,26 +1,31 @@
+/* ================== NAVBAR ================== */
 .navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px 25px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1100px;
+
+  margin: 10px auto 0 auto;
+  padding: 4px 20px; /* más compacto */
+
+  width: 92%;
+  max-width: 1000px; /* un poco más estrecho */
 
   position: relative;
-  top: 10px;
   z-index: 1000;
 
-  
-  background: rgba(245, 232, 206, 0.65);
+  background: rgba(245, 232, 206, 0.6);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
+/* contenedor interno */
+.nav-container {
+  width: 100%;
+}
 
+/* ================== TOP ================== */
 .nav-top {
   width: 100%;
   display: flex;
@@ -29,10 +34,9 @@
   position: relative;
 }
 
-
+/* ================== LOGO ================== */
 .navLogo {
-  width: 110px;
-  margin: 0 auto;
+  width: 85px; /* antes 110px → más elegante */
   transition: transform 0.3s ease;
 }
 
@@ -40,53 +44,58 @@
   transform: scale(1.05);
 }
 
-
+/* ================== SELECT ================== */
 .lang-select {
   position: absolute;
-  right: 10px;
+  right: 0;
   top: 0;
 
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+
+  border-radius: 8px;
   border: none;
 
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(5px);
 
   color: #333;
-  font-weight: 500;
   cursor: pointer;
 }
 
-
+/* ================== LINKS ================== */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 18px; /* menos separación */
   list-style: none;
-  margin-top: 15px;
+
+  margin-top: 10px;
+  padding: 0;
+
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0;
 }
 
-
+/* links individuales */
 .nav-links li a {
   text-decoration: none;
   color: var(--text-h);
   font-weight: 500;
-  padding: 5px 10px;
+  font-size: 0.95rem; /* más fino */
+
+  padding: 4px 6px;
   position: relative;
+
   transition: all 0.3s ease;
 }
 
-
+/* hover línea */
 .nav-links li a::after {
   content: "";
   position: absolute;
   width: 0%;
-  height: 1.5px;
-  opacity: 0.8;
-  bottom: -4px;
+  height: 1px; /* más fino */
+  bottom: -3px;
   left: 0;
   background-color: #516e50;
   transition: width 0.3s ease;
@@ -98,15 +107,89 @@
 
 .nav-links li a:hover {
   color: #516e50;
-  text-shadow: 0 0 8px rgba(191, 162, 219, 0.6);
 }
 
+/* ================== RESPONSIVE ================== */
 
-nav select {
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background-color: var(--bg);
-  color: var(--text);
-  font-weight: 500;
+/* TABLET */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    margin: 10px auto;
+  }
+
+  .navLogo {
+    width: 75px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* ================== BURGER ================== */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+.burger span {
+  width: 22px;
+  height: 2.3px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+/* animación */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================== MÓVIL ================== */
+@media (max-width: 768px) {
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background: rgba(245, 232, 206, 0.95);
+    backdrop-filter: blur(10px);
+
+    flex-direction: column;
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    padding: 15px 0;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
 }
